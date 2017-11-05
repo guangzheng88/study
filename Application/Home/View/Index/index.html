@@ -1,0 +1,30 @@
+<include file="Public/header" title="首页" />
+</head>
+<body>
+    <div id="wrapper" style="margin-top: 100px;">
+        <div class="skinBg" style="background-image: url('__PUBLIC__/images/home/65.jpg');"></div>
+        <div class="content tc">
+            <p class="logo"><img width="270" height="129" src="__PUBLIC__/images/home/logo_white.png" alt="logo" /></p>
+            <nav class="mainNavs">
+                <foreach name="cateInfo" item="val">
+                <a href="__MODULE__/Article/getList/pid/{$val.id}">{$val.title}</a>
+                </foreach>
+                <a href="__MODULE__/Article/getList">更多&gt;&gt;</a>
+            </nav>
+            <div class="searchBox">
+                <form action="__MODULE__/Article/getList">
+                    <input type="text" class="searchIpt f14" name="wd" maxlength="100" autocomplete="off"/>
+                    <input type="submit" class="btn cp" value="百度一下" />
+                </form>
+            </div>
+        </div>
+    </div>
+    <script>
+        //搜索框自动补全
+        $('.searchIpt').AutoComplete({
+            'data': ['About Me', '审美网', 'abcdefg', 'One', 'Two', 'Three', 'Four', 'Five', 'Six','smwell.com', 'Seven', 'Eight', 'Nine', 'Ten', 'Eleven', 'Twelve'],
+            'itemHeight': 24,
+            'width': 529
+        }).AutoComplete('show');
+    </script>
+<include file="Public/footer"/>

@@ -1,0 +1,122 @@
+<include file="./Application/Admin/View/Public/header.html" title="新增单元测试"/>
+<script type="text/javascript">
+$(document).ready(function(e) {
+    $(".select1").uedSelect({
+        width : 345
+    });
+});
+</script>
+<style type="text/css">
+    .r_input{width:220px;float: left;}
+    .plusImg:hover{cursor: pointer;}
+    .plusImg{margin-left: 20px;}
+    .r__right_input{text-align:right;}
+</style>
+</head>
+<body>
+    <div class="place">
+    <span>位置：</span>
+    <ul class="placeul">
+    <li><a href="javascript:;">PHP</a></li>
+    <li><a href="javascript:;">新增单元测试</a></li>
+    </ul>
+    </div>
+    <div class="formbody">
+    <div id="usual1" class="usual">
+    <div class="itab">
+    <ul>
+    <li><a href="#tab1" class="selected">新增接口单元测试</a></li>
+    <li><a href="#tab2">新增Action单元测试</a></li>
+    </ul>
+    </div>
+    <div id="tab1" class="tabson">
+    <form action="__CONTROLLER__/submitApi" method="post">
+    <ul class="forminfo">
+    <li>
+        <label>BLL地址<b>*</b></label>
+        <input name="bll_path" type="text" class="dfinput" value="{:BLL_PATH}"/>
+        <i>例：BLL的根目录绝对地址</i>
+    </li>
+    <li>
+        <label>模块名称<b>*</b></label>
+        <input name="module_name" type="text" class="dfinput apiModule" value=""/>
+        <i>例：dining</i>
+    </li>
+    <li>
+        <label>接口名称<b>*</b></label>
+        <input name="api_name" type="text" class="dfinput apiName" value=""/>
+        <i>例：cardInfo</i>
+    </li>
+    <li>
+        <label>方法名称<b>*</b></label>
+        <input name="function" type="text" class="dfinput" value="index"/>
+        <i>例：index</i>
+    </li>
+    <li>
+    <label>请求方式<b>*</b></label>
+    <cite>
+        <input name="method" type="radio" value="get" checked="checked" />GET&nbsp;&nbsp;&nbsp;&nbsp;
+        <input name="method" type="radio" value="post"/>POST&nbsp;&nbsp;&nbsp;&nbsp;
+        <input name="method" type="radio" value="put"/>PUT&nbsp;&nbsp;&nbsp;&nbsp;
+        <input name="method" type="radio" value="delete"/>DELETE&nbsp;&nbsp;&nbsp;&nbsp;
+    </cite>
+    </li>
+    <li>
+        <label>请求参数：</label>
+        <input name="key[]" type="text" class="dfinput r_input" value=""/>
+        <label class="r__right_input">参数值：</label>
+        <input name="value[]" type="text" class="dfinput r_input" value="" />
+        <img src="__PUBLIC__/images/t01.png" class="plusImg addParam">
+    </li>
+    <li class="addAllParam"><label>&nbsp;</label><input name="" type="submit" class="btn" value="提&nbsp;&nbsp;&nbsp;&nbsp;交"/></li>
+    </ul>
+    </form>
+    </div>
+
+
+    <div id="tab2" class="tabson">
+        <form action="__CONTROLLER__/submitActionUnit" method="post">
+        <ul class="forminfo">
+        <li>
+            <label>BLL地址<b>*</b></label>
+            <input name="bll_path" type="text" class="dfinput" value="{:BLL_PATH}"/>
+            <i>例：BLL的根目录绝对地址</i>
+        </li>
+        <li>
+            <label>模块名称<b>*</b></label>
+            <input name="module_name" type="text" class="dfinput apiModule" value=""/>
+            <i>例：dining</i>
+        </li>
+        <li>
+            <label>文件名称<b>*</b></label>
+            <input name="api_name" type="text" class="dfinput apiName" value=""/>
+            <i>例：cardInfo</i>
+        </li>
+        <li>
+            <label>被测方法<b>*</b></label>
+            <input name="function" type="text" class="dfinput" value="main"/>
+            <i>例：main</i>
+        </li>
+        <li>
+            <label>请求参数：</label>
+            <input name="key[]" type="text" class="dfinput r_input" value=""/>
+            <label class="r__right_input">参数值：</label>
+            <input name="value[]" type="text" class="dfinput r_input" value="" />
+            <img src="__PUBLIC__/images/t01.png" class="plusImg addParam">
+        </li>
+        <li class="addAllParam"><label>&nbsp;</label><input name="" type="submit" class="btn" value="提&nbsp;&nbsp;&nbsp;&nbsp;交"/></li>
+        </ul>
+        </form>
+    </div>
+
+    </div>
+<script type="text/javascript">
+    $("#usual1 ul").idTabs();
+    $('.tablelist tbody tr:odd').addClass('odd');
+    $('.addParam').click(function(){
+            var html = '<li> <label>请求参数：</label> <input name="key[]" type="text" class="dfinput r_input" value=""/> <label class="r__right_input">参数值：</label> <input name="value[]" type="text" class="dfinput r_input" value="" /> </li>';
+            $('.addAllParam').before(html);
+    });
+</script>
+</div>
+<include file="./Application/Admin/View/Public/footer.html"/>

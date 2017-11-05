@@ -1,0 +1,46 @@
+<include file="./Application/Admin/View/Public/header.html" title="生成二维码"/>
+</head>
+<body>
+    <div class="place">
+        <span>位置：</span>
+        <ul class="placeul">
+            <li><a href="javascript:;">PHP</a></li>
+            <li><a href="javascript:;">图像操作</a></li>
+            <li><a href="javascript:;">生成二维码</a></li>
+        </ul>
+    </div>
+    <div class="formbody">
+        <div class="formtitle"><span>生成二维码图片</span></div>
+        <form action="__CONTROLLER__/createQrcode" method="post">
+            <ul class="forminfo">
+                <li>
+                    <label>二维码内容</label>
+                    <textarea name="content" cols="" rows="" class="textinput"></textarea>
+                </li>
+                <li>
+                    <label>是否保存图片</label>
+                    <cite>
+                        <input name="isSave" type="radio" value="1" class="isSave" />是&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input name="isSave" type="radio" value="0" checked="checked" class="isNoSave" />否
+                    </cite>
+                </li>
+                <li class="showPath" style="display: none;">
+                    <label>图片保存路径</label>
+                    <input name="savaPath" type="text" class="dfinput" value="{:BATH_PATH}__PUBLIC__/uploads/qrcode" readonly="readonly" />
+                </li>
+                <li>
+                    <label>&nbsp;</label>
+                    <input name="" type="submit" class="btn" value="生成二维码"/>
+                </li>
+            </ul>
+        </form>
+    </div>
+<include file="./Application/Admin/View/Public/footer.html"/>
+<script type="text/javascript">
+    $('.isSave').click(function(){
+        $('.showPath').show();
+    })
+    $('.isNoSave').click(function(){
+        $('.showPath').hide();
+    })
+</script>

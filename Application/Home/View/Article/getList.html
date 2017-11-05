@@ -1,0 +1,52 @@
+<include file="Public/header" title="{$wd}_搜索结果"/>
+<style type="text/css">
+    *{padding:0;margin: 0;}
+    .content{margin-top:20px;padding: 0;text-align: left;margin-left:0px;}
+    .mainNavs{margin:5px 120px;}
+    .serchList,.showMsg{color:white; width:650px;}
+    h2{margin:10px 0px;}
+    .serchList{margin: 20px;}
+    .serchList a{color:white;}
+    .serchList .content{color:white;}
+</style>
+</head>
+<body>
+    <div id="wrapper">
+        <div class="skinBg" style="background-image: url('__PUBLIC__/images/home/65.jpg');"></div>
+        <div class="content tc">
+            <div class="searchBox">
+                <form action="__MODULE__/Article/getList">
+                    <a href="__MODULE__"><img width="120" height="60" src="__PUBLIC__/images/home/logo_white.png" alt="logo" /></a>
+                    <input type="text" class="searchIpt f14" name="wd" maxlength="100" autocomplete="off" value="{$wd}" />
+                    <input type="submit" class="btn cp" value="百度一下" />
+                </form>
+            </div>
+            <nav class="mainNavs">
+                <foreach name="cateInfo" item="val">
+                <a href="__MODULE__/Article/getList/pid/{$val.id}">{$val.title}</a>
+                </foreach>
+                <a href="__MODULE__/Article/getList">更多&gt;&gt;</a>
+            </nav>
+        </div>
+    </div>
+    <hr>
+    <div class="showMsg">为您找到相关结果约 {$count} 个</div>
+    <foreach name="data" item="val">
+    <div class="serchList">
+        <h2>
+            <a href="__CONTROLLER__/index/id/{$val.id}" target="_blank">{$val.title}</a>
+        </h2>
+        <p class="content">{$val.content|html_entity_decode=###|mb_substr=###,0,300,'utf-8'}...</p>
+        <p style="margin-top:10px;">发布时间 : {$val.create_time}</p>
+        <hr style="margin-top:20px;">
+    </div>
+    </foreach>
+    <script>
+        //搜索框自动补全
+        $('.searchIpt').AutoComplete({
+            'data': ['About Me', '审美网', 'abcdefg', 'One', 'Two', 'Three', 'Four', 'Five', 'Six','smwell.com', 'Seven', 'Eight', 'Nine', 'Ten', 'Eleven', 'Twelve'],
+            'itemHeight': 24,
+            'width': 529
+        }).AutoComplete('show');
+    </script>
+<include file="Public/footer"/>

@@ -1,0 +1,22 @@
+<include file="./Application/Admin/View/Public/header.html" title=""/>
+</head>
+<body>
+    <div class="place">
+        <span>位置：</span>
+        <ul class="placeul">
+            <li><a href="javascript:;">HTML</a></li>
+            <li><a href="javascript:;">常用模板</a></li>
+            <li><a href="__CONTROLLER__/">模板列表</a></li>
+            <li><a href="javascript:;">模板详情</a></li>
+        </ul>
+    </div>
+    <div class="formbody">
+    <div class="formtitle"><span>{$data.title}</span></div>
+    <p>关键字 : {$data.keywords}</p>
+    <p>发布时间 : {$data.create_time}</p>
+    <p>最后修改时间 : {$data.update_time}</p>
+    </div>
+    <div style="background: #f1f1f1;">
+        {$data.content|html_entity_decode=###}
+    </div>
+<include file="./Application/Admin/View/Public/footer.html"/>

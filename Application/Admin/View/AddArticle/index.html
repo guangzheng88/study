@@ -1,0 +1,67 @@
+<include file="./Application/Admin/View/Public/header.html" title="新增文章" />
+<!-- 编辑器配置文件 -->
+<script type="text/javascript" src="__PUBLIC__/plugins/ueditor/ueditor.config.js"></script>
+<!-- 编辑器源码文件 -->
+<script type="text/javascript" src="__PUBLIC__/plugins/ueditor/ueditor.all.js"></script>
+<script type="text/javascript">
+    $(function(){
+        //实例化编辑器
+        var ue = UE.getEditor('container');
+        $(".select1").uedSelect({
+            width : 345
+        });
+    });
+</script>
+</head>
+<body>
+    <div class="place">
+    <span>位置：</span>
+    <ul class="placeul">
+    <li><a href="javascript:;">首页</a></li>
+    <li><a href="javascript:;">新增文章</a></li>
+    </ul>
+    </div>
+    <div class="formbody">
+    <div id="usual1" class="usual">
+    <div class="itab">
+    <ul>
+    <li><a href="#tab1" class="selected">新增文章</a></li>
+    </ul>
+    </div>
+    <div id="tab1" class="tabson">
+    <form action="__CONTROLLER__/submit" method="post" autocomplete="off">
+    <ul class="forminfo">
+    <li><label>标题<b>*</b></label>
+        <input name="title" type="text" class="dfinput" value=""/>
+    </li>
+    <li>
+        <label>关键字<b>*</b></label>
+        <input name="keywords" type="text" class="dfinput" value=""/>
+        <i>关键字用于搜索，以英文的逗号分割多个关键字</i>
+    </li>
+    <li><label>分类<b>*</b></label>
+        <div class="vocation">
+            <select class="select1" name="cate_id">
+                <foreach name="cateInfo" item="val">
+                    <option value="{$val.id}">{$val.title}</option>
+                </foreach>
+            </select>
+        </div>
+    </li>
+    <li>
+        <label>来源<b>*</b></label>
+        <input name="source" type="text" class="dfinput" value=""/>
+        <i>如：下载地址、源网页等信息</i>
+    </li>
+    <li>
+        <label>内容<b>*</b></label>
+        <!-- 加载编辑器的容器 -->
+        <script id="container" name="content" type="text/plain" style="width:90%;height: 500px;margin-left:86px;"></script>
+    </li>
+    <li><label>&nbsp;</label><input name="" type="submit" class="btn" value="马上发布"/></li>
+    </ul>
+    </form>
+    </div>
+    </div>
+    </div>
+<include file="./Application/Admin/View/Public/footer.html" />

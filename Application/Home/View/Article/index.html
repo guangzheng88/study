@@ -1,0 +1,16 @@
+<include file="Article/articleHeader" title="{$data.title}"/>
+<style type="text/css">
+    .r_p{font-size: 14px;color:#999;}
+</style>
+</head>
+<body>
+<div style="width:800px;margin: 20px auto;">
+    <h1>{$data.title}</h1>
+    <p class="r_p">关键字 : {$data.keywords}</p>
+    <p class="r_p">发布时间 : {$data.create_time}</p>
+    <hr>
+    {$data.content|html_entity_decode=###}
+    <hr>
+    <p>来源 : {$data.source}</p>
+</div>
+<include file="Public/footer"/>

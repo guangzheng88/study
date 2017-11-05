@@ -1,0 +1,59 @@
+<include file="./Application/Admin/View/Public/header.html" title="新增DAL Controller" />
+<script type="text/javascript">
+$(document).ready(function(e) {
+    $(".select1").uedSelect({
+        width : 345
+    });
+});
+</script>
+</head>
+<body>
+    <div class="place">
+        <span>位置：</span>
+        <ul class="placeul">
+            <li><a href="javascript:;">PHP</a></li>
+            <li><a href="javascript::">新增DAL Controller</a></li>
+        </ul>
+    </div>
+    <div class="formbody">
+        <div id="usual1" class="usual">
+            <div class="itab">
+                <ul>
+                    <li><a href="#tab1" class="selected">新增DAL Controller</a></li>
+                </ul>
+            </div>
+            <div id="tab1" class="tabson">
+                <form action="__CONTROLLER__/submit" method="post">
+                    <ul class="forminfo">
+                        <li>
+                            <label>DAL地址<b>*</b></label>
+                            <input name="bll_path" type="text" class="dfinput" value="{:DAL_PATH}"/>
+                            <i>例：DAL的根目录绝对地址</i>
+                        </li>
+                        <li>
+                            <label>模块名称<b>*</b></label>
+                            <input name="module_name" type="text" class="dfinput apiModule" value="{$Think.get.module_name}"/>
+                            <i>例：dining</i>
+                        </li>
+                        <li>
+                            <label>数据库名称<b>*</b></label>
+                            <input name="db_name" type="text" class="dfinput apiName" value="{$Think.get.db_name}"/>
+                            <i>例：db_ljlj</i>
+                        </li>
+                        <li>
+                            <label>控制器名称<b>*</b></label>
+                            <input name="api_name" type="text" class="dfinput apiName" value="{$Think.get.api_name}"/>
+                            <i>例：wechat_annal，一般就是表名</i>
+                        </li>
+                            <input name="db_name" type="hidden" class="dfinput apiName" value="{$Think.get.db_name}"/>
+                            <input name="char_name" type="hidden" class="dfinput apiName" value="{$Think.get.char_name|default='utf8'}"/>
+                        <li><label>&nbsp;</label><input name="" type="submit" class="btn" value="马上创建"/></li>
+                    </ul>
+                    <input type="hidden" name="tableComment" value="{$Think.get.tableComment}">
+                </form>
+            </div>
+            <div id="tab2" class="tabson">
+            </div>
+        </div>
+    </div>
+<include file="./Application/Admin/View/Public/footer.html" />

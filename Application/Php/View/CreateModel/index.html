@@ -1,0 +1,61 @@
+<include file="./Application/Admin/View/Public/header.html" title="新增Model" />
+<script type="text/javascript">
+$(document).ready(function(e) {
+    $(".select1").uedSelect({
+        width : 345
+    });
+});
+</script>
+</head>
+<body>
+    <div class="place">
+        <span>位置：</span>
+        <ul class="placeul">
+            <li><a href="javascript:;">PHP</a></li>
+            <li><a href="javascript::">新增Model</a></li>
+        </ul>
+    </div>
+    <div class="formbody">
+        <div id="usual1" class="usual">
+            <div class="itab">
+                <ul>
+                    <li><a href="#tab1" class="selected">新增Model</a></li>
+                </ul>
+            </div>
+            <div id="tab1" class="tabson">
+                <form action="__CONTROLLER__/submit" method="post">
+                    <ul class="forminfo">
+                        <li>
+                            <label>BLL地址<b>*</b></label>
+                            <input name="bll_path" type="text" class="dfinput" value="{:BLL_PATH}"/>
+                            <i>例：BLL的根目录绝对地址</i>
+                        </li>
+                        <li>
+                            <label>模块名称<b>*</b></label>
+                            <input name="module_name" type="text" class="dfinput apiModule" value="{$Think.get.module_name}"/>
+                            <i>例：dining</i>
+                        </li>
+                        <li>
+                            <label>数据库名称<b>*</b></label>
+                            <input name="db_name" type="text" class="dfinput apiName" value=""/>
+                            <i>例：db_ljlj</i>
+                        </li>
+                        <li>
+                            <label>Model名称<b>*</b></label>
+                            <input name="api_name" type="text" class="dfinput apiName" value="{$api_name}"/>
+                            <i>例：wechat_annal，就是表名</i>
+                        </li>
+                        <li>
+                            <label>字符集<b>*</b></label>
+                            <input name="char_name" type="text" class="dfinput apiName" value="utf8"/>
+                            <i></i>
+                        </li>
+                        <li><label>&nbsp;</label><input name="" type="submit" class="btn" value="马上创建"/></li>
+                    </ul>
+                </form>
+            </div>
+            <div id="tab2" class="tabson">
+            </div>
+        </div>
+    </div>
+<include file="./Application/Admin/View/Public/footer.html" />

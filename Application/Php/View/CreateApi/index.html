@@ -1,0 +1,96 @@
+<include file="./Application/Admin/View/Public/header.html" title="新增BLL接口" />
+<script type="text/javascript">
+$(document).ready(function(e) {
+    $(".select1").uedSelect({
+        width : 345
+    });
+});
+</script>
+</head>
+<body>
+    <div class="place">
+    <span>位置：</span>
+    <ul class="placeul">
+    <li><a href="javascript:;">PHP</a></li>
+    <li><a href="javascript::">新增BLL接口</a></li>
+    </ul>
+    </div>
+    <div class="formbody">
+    <div id="usual1" class="usual">
+    <div class="itab">
+    <ul>
+    <li><a href="#tab1" class="selected">新增BLL接口</a></li>
+    </ul>
+    </div>
+    <div id="tab1" class="tabson">
+    <div class="formtext">Hi，<b>admin</b>，欢迎您试用新增BLL接口功能！</div>
+    <form action="__CONTROLLER__/submit" method="post">
+    <ul class="forminfo">
+    <li>
+        <label>BLL地址<b>*</b></label>
+        <input name="bll_path" type="text" class="dfinput" value="{:BLL_PATH}"/>
+        <i>例：BLL的根目录绝对地址</i>
+    </li>
+    <li>
+        <label>模块名称<b>*</b></label>
+        <input name="module_name" type="text" class="dfinput apiModule" value=""/>
+        <i>例：dining</i>
+    </li>
+    <li>
+        <label>接口名称<b>*</b></label>
+        <input name="api_name" type="text" class="dfinput apiName" value=""/>
+        <i>例：cardInfo</i>
+    </li>
+    <li>
+        <label>方法名称<b>*</b></label>
+        <input name="function" type="text" class="dfinput" value="index"/>
+        <i>例：index</i>
+    </li>
+    <li>
+    <label>请求方式<b>*</b></label>
+    <cite>
+        <input name="method" type="radio" value="get" checked="checked" />GET&nbsp;&nbsp;&nbsp;&nbsp;
+        <input name="method" type="radio" value="post"/>POST&nbsp;&nbsp;&nbsp;&nbsp;
+        <input name="method" type="radio" value="put"/>PUT&nbsp;&nbsp;&nbsp;&nbsp;
+        <input name="method" type="radio" value="delete"/>DELETE&nbsp;&nbsp;&nbsp;&nbsp;
+    </cite>
+    </li>
+    <li>
+    <label>新建Action<b></b></label>
+    <cite><input name="isView" type="radio" value="1" class="addAction" />是&nbsp;&nbsp;&nbsp;&nbsp;
+    <input name="isView" type="radio" value="0" checked="checked" />否</cite>
+    </li>
+    <li>
+        <label>Action模块<b></b></label>
+        <input name="action_module" type="text" class="dfinput actionModule" value=""/>
+        <i>例：dining</i>
+    </li>
+    <li>
+        <label>Action名称<b></b></label>
+        <input name="action_name" type="text" class="dfinput actionName" value=""/>
+        <i>例：cardInfo</i>
+    </li>
+    <li>
+        <label>Action方法<b></b></label>
+        <input name="action_function" type="text" class="dfinput" value="main"/>
+        <i>例：main</i>
+    </li>
+    <li><label>&nbsp;</label><input name="" type="submit" class="btn" value="马上创建"/></li>
+    </ul>
+    </form>
+    </div>
+    <div id="tab2" class="tabson">
+    </div>
+    </div>
+    <script type="text/javascript">
+        $("#usual1 ul").idTabs();
+        //新增action
+        $('.addAction').click(function(){
+            var aMod = $('.apiModule').val();
+            $('.actionModule').val(aMod);
+            var apiName = $('.apiName').val();
+            $('.actionName').val(apiName);
+        });
+    </script>
+    </div>
+<include file="./Application/Admin/View/Public/footer.html" />

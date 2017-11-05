@@ -1,0 +1,169 @@
+<include file="./Application/Admin/View/Public/header.html" title="文档注释"/>
+</head>
+<body>
+    <div class="place">
+        <span>位置：</span>
+        <ul class="placeul">
+            <li><a href="javascript:;">PHP</a></li>
+            <li><a href="javascript:;">编写文档注释</a></li>
+        </ul>
+    </div>
+    <div class="formbody">
+        <form action="__CONTROLLER__/submit" method="post" target="apiIframe" autocomplete="off">
+            <div class="formtitle"><span>基本信息</span></div>
+            <ul class="forminfo">
+                <li>
+                    <label>文档作者：</label>
+                    <input name="author" type="text" class="dfinput" value="{:AUTHOR}"/>
+                    <i></i>
+                </li>
+                <li>
+                    <label>接口路径：</label>
+                    <input name="api_url" type="text" class="dfinput" value="" />
+                    <i>例：dining/cardInfo/startInit</i>
+                </li>
+                <li>
+                    <label>请求方式：</label>
+                    <cite>
+                        <input name="api_method" type="radio" value="get" checked="checked" />GET&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input name="api_method" type="radio" value="post" />POST&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input name="api_method" type="radio" value="put" />PUT&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input name="api_method" type="radio" value="delete" />DELETE&nbsp;&nbsp;&nbsp;&nbsp;
+                    </cite>
+                </li>
+                <li>
+                    <label>接口名称：</label>
+                    <input name="api_title" type="text" class="dfinput" value="" />
+                    <i>例：用户注册接口</i>
+                </li>
+                <li>
+                    <label>接口分组：</label>
+                    <input name="apiGroup" type="text" class="dfinput" value="" />
+                    <i>例：dining</i>
+                </li>
+                <li>
+                    <label>详细描述：</label>
+                    <textarea name="apiDescription" cols="" rows="" class="textinput"></textarea>
+                    <i>例：...接口,在...调用，完成了...,并...,最后...;（支持html语法）</i>
+                </li>
+                <li>
+                    <label>请求参数：</label>
+                    <input name="key[]" type="text" class="dfinput r_input" value="assert"/>
+                    <label class="r__right_input">参数描述：</label>
+                    <input name="value[]" type="text" class="dfinput r_input" value="1成功，2参数错误,3..." />
+                    <label class="r__right_input">参数类型：</label>
+                    <cite>
+                        <input name="paramType0" type="radio" value="String"/>String&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input name="paramType0" type="radio" value="Integer"  checked="checked"/>Integer&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input name="paramType0" type="radio" value="Float" />Float&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input name="paramType0" type="radio" value="Boolean" />Boolean&nbsp;&nbsp;&nbsp;&nbsp;
+                    </cite>
+                    <img src="__PUBLIC__/images/t01.png" class="plusImg addParam">
+                </li>
+                <li class="addAllParam"><input name="" type="button" class="btn" value="新增数组参数" onclick="$('.hideArr').show()" /></li>
+                <li class="hideArr" style="margin-bottom:35px;">
+                    <label>数组下标：</label>
+                    <input name="arrKey" type="text" class="dfinput r_input" value=""/>
+                    <i></i>
+                </li>
+                <li class="hideArr">
+                    <label>请求参数：</label>
+                    <input name="arrParamKey[]" type="text" class="dfinput r_input" value=""/>
+                    <label class="r__right_input">参数描述：</label>
+                    <input name="arrParamValue[]" type="text" class="dfinput r_input" value="" />
+                    <i><img src="__PUBLIC__/images/t01.png" class="plusImg addArrParams"><i>
+                </li>
+                <li  class="addArrParams_befor" style="margin-top:50px;">
+                    <label>成功返回：</label>
+                    <input name="succeskey[]" type="text" class="dfinput r_input" value=""/>
+                    <label class="r__right_input">参数描述：</label>
+                    <input name="succesvalue[]" type="text" class="dfinput r_input" value="" />
+                    <label class="r__right_input">参数类型：</label>
+                    <cite>
+                        <input name="successParamType0" type="radio" value="String" checked="checked" />String&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input name="successParamType0" type="radio" value="Integer" />Integer&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input name="successParamType0" type="radio" value="Float" />Float&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input name="successParamType0" type="radio" value="Boolean" />Boolean&nbsp;&nbsp;&nbsp;&nbsp;
+                    </cite>
+                    <i><img src="__PUBLIC__/images/t01.png" class="plusImg addsuccesParam"><i>
+                </li>
+                <li class="addSuccesAllParam">
+                    <label>成功示例：</label>
+                    <textarea name="apiSuccessExample" cols="" rows="" class="textinput"></textarea>
+                    <i></i>
+                </li>
+                <li>
+                    <label>失败返回：</label>
+                    <input name="errorkey[]" type="text" class="dfinput r_input" value="state-0"/>
+                    <label class="r__right_input">参数描述：</label>
+                    <input name="errorvalue[]" type="text" class="dfinput r_input" value="错误标识，不为1表示接口调用失败" />
+                    <label class="r__right_input">参数类型：</label>
+                    <cite>
+                        <input name="errorParamType0" type="radio" value="String"/>String&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input name="errorParamType0" type="radio" value="Integer"  checked="checked"/>Integer&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input name="errorParamType0" type="radio" value="Float" />Float&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input name="errorParamType0" type="radio" value="Boolean" />Boolean&nbsp;&nbsp;&nbsp;&nbsp;
+                    </cite>
+                    <i><img src="__PUBLIC__/images/t01.png" class="plusImg addErrorParam"><i>
+                </li>
+                <li class="addErrorAllParam">
+                    <label>失败示例：</label>
+                    <textarea name="apiErrorExample" cols="" rows="" class="textinput">object(stdClass)#1 (3) {
+     ["status"]=> int(0)
+     ["state"]=> int(0)
+     ["eror"]=> "参数错误"
+}</textarea>
+                    <i></i>
+                </li>
+                <li>
+                    <label>生成接口文件：</label>
+                    <cite>
+                        <input name="isFile" type="radio" value="1" />好&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input name="isFile" type="radio" value="0" checked="checked"/>不需要&nbsp;&nbsp;&nbsp;&nbsp;
+                    </cite>
+                </li>
+
+                <li><label>&nbsp;</label><input name="" type="submit" class="btn" value="提 &nbsp;&nbsp; 交"/></li>
+            </ul>
+        </form>
+    </div>
+    <hr style="border: 1px solid #999;">
+    <iframe src="" frameborder="0" width="100%" height="500" class="api_annotation_iframe" name="apiIframe"></iframe>
+    <style type="text/css">
+        .r_input{width:220px;float: left;}
+        .r__right_input{text-align:right;}
+        .plusImg{width: 30px;height: 30px;float: right;}
+        .plusImg:hover{cursor: pointer;}
+        .hideArr{display:none;}
+    </style>
+<script type="text/javascript">
+    //新增参数
+    var addPi = 0;
+    $('.addParam').click(function(){
+            addPi++;
+            var html = '<li> <label>请求参数：</label> <input name="key[]" type="text" class="dfinput r_input" value=""/> <label class="r__right_input">参数描述：</label> <input name="value[]" type="text" class="dfinput r_input" value="" /> <label class="r__right_input">参数类型：</label> <cite> <input name="paramType'+addPi+'" type="radio" value="String" checked="checked" />String&nbsp;&nbsp;&nbsp;&nbsp; <input name="paramType'+addPi+'" type="radio" value="Integer" />Integer&nbsp;&nbsp;&nbsp;&nbsp; <input name="paramType'+addPi+'" type="radio" value="Float" />Float&nbsp;&nbsp;&nbsp;&nbsp; <input name="paramType'+addPi+'" type="radio" value="Boolean" />Boolean&nbsp;&nbsp;&nbsp;&nbsp; </cite> </li>';
+            $('.addAllParam').before(html);
+    });
+    //新增数组参数
+    var addArri = 0;
+    $('.addArrParams').click(function(){
+        addArri++;
+        var html = '<li style="margin-bottom:25px;"> <label>请求参数：</label> <input name="arrParamKey[]" type="text" class="dfinput r_input" value=""/> <label class="r__right_input">参数描述：</label> <input name="arrParamValue[]" type="text" class="dfinput r_input" value="" /></li>';
+                $('.addArrParams_befor').before(html);
+    });
+    //新增成功参数
+    var addSi = 0;
+    $('.addsuccesParam').click(function(){
+            addSi++;
+            var html = '<li> <label>成功返回：</label> <input name="succeskey[]" type="text" class="dfinput r_input" value=""/> <label class="r__right_input">参数描述：</label> <input name="succesvalue[]" type="text" class="dfinput r_input" value="" /> <label class="r__right_input">参数类型：</label> <cite> <input name="successParamType'+addSi+'" type="radio" value="String" checked="checked" />String&nbsp;&nbsp;&nbsp;&nbsp; <input name="successParamType'+addSi+'" type="radio" value="Integer" />Integer&nbsp;&nbsp;&nbsp;&nbsp; <input name="successParamType'+addSi+'" type="radio" value="Float" />Float&nbsp;&nbsp;&nbsp;&nbsp; <input name="successParamType'+addSi+'" type="radio" value="Boolean" />Boolean&nbsp;&nbsp;&nbsp;&nbsp; </cite> </li>';
+            $('.addSuccesAllParam').before(html);
+    });
+    //新增失败参数
+    var errPi = 0;
+    $('.addErrorParam').click(function(){
+        errPi++;
+            var html = '<li> <label>失败返回：</label> <input name="errorkey[]" type="text" class="dfinput r_input" value="state-'+(errPi+1)+'"/> <label class="r__right_input">参数描述：</label> <input name="errorvalue[]" type="text" class="dfinput r_input" value="" /> <label class="r__right_input">参数类型：</label> <cite> <input name="errorParamType'+errPi+'" type="radio" value="String" />String&nbsp;&nbsp;&nbsp;&nbsp; <input name="errorParamType'+errPi+'" type="radio" value="Integer"  checked="checked"/>Integer&nbsp;&nbsp;&nbsp;&nbsp; <input name="errorParamType'+errPi+'" type="radio" value="Float" />Float&nbsp;&nbsp;&nbsp;&nbsp; <input name="errorParamType'+errPi+'" type="radio" value="Boolean" />Boolean&nbsp;&nbsp;&nbsp;&nbsp; </cite> </li>';
+            $('.addErrorAllParam').before(html);
+    });
+</script>
+<include file="./Application/Admin/View/Public/footer.html"/>
